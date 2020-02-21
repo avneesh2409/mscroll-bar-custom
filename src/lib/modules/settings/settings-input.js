@@ -7,20 +7,25 @@ export default class SettingsInput extends SettingsObject {
   }
   updateCustomList() {
     const fetchLink = this.customLinks;
-    const customlist = $(`#customlistdata`);
+    const customlist = $(`#content-1`);
     customlist.html("");
     $.each(fetchLink, (index, value) => {
-      customlist.append(`<p title="Click to remove" class="custmlnkItem" id=${index}>${value}<span class="close1">&times;</span></p>`);
+      customlist.append(`<p title="Click to remove" id=${index}>${value}<span class="close1">&times;</span></p>`);
     });
     $('.close1').click((e) => this.remove(e));
   }
   render() {
     const _this = this
-    const customlist = $(`<div id="customlistdata" style="max-height: 100px;overflow: scroll;"></div>`);
+    const scroll = $(`<div id="examples">
+    <div id="content-1" class="content">
+    <p>;djfsdkljgldjkgddfklgljkdjglkd</p>
+    <p>;djfsdkljgldjkgddfklgljkdjglkd</p>
+    </div>
+	</div>`)
     $.each(this.customLinks, function (index, value) {
-      customlist.append(`<p title="Click to remove" class="custmlnkItem" class="close1">&times;</span></p>`);
+      customlist.append(`<p title="Click to remove" id="${index}">${value} <span class="close1">&times;</span></p>`);
     });
-    this.list = customlist;
+    this.list = scroll;
     this.obj = $(`<div class="input"><label>URL</label><input id="inputdata" type="text" /></div>`);
     this.$button = $(`<div class="settings-input-button">Add</div>`).appendTo(this.obj)
       .click((e) => {
