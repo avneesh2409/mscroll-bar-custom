@@ -18,8 +18,6 @@ export default class SettingsInput extends SettingsObject {
     const _this = this
     const scroll = $(`<div id="examples">
     <div id="content-1" class="content">
-    <p>;djfsdkljgldjkgddfklgljkdjglkd</p>
-    <p>;djfsdkljgldjkgddfklgljkdjglkd</p>
     </div>
 	</div>`)
     $.each(this.customLinks, function (index, value) {
